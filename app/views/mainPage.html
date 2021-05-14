@@ -1,0 +1,42 @@
+<header class="menu">
+    <div class="container">
+      <!--<label class="menu-logo">
+        <input type="checkbox" id="switch"> 🌜 Dark
+      </label>-->
+      <div class="toggle">
+        <input id="switch" type="checkbox" name="theme">
+        <label for="switch">Toggle</label>
+      </div>
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+<section class="container">
+    <div class="home">
+        <div class="home-title">
+            <h1>Git-Git</h1> 
+        </div>
+        <form name="form">
+            <input type="text" ng-model="username" placeholder="Digite o usuário" required>
+            <button ng-click="buscar(username)" type="submit">Buscar</button>
+        </form>
+    </div>
+</section>
+
+<section class="user" ng-if="lista">
+  <div class="container user-info">
+    <div class="user_img">
+      <img src="{{lista.avatar_url}}">
+    </div>
+    <ul>
+      <li>{{lista.name}}</li>
+      <li class="user-data">{{lista.location}}</li>
+    </ul>
+    <a href="#!/userPage/{{lista.login}}">➔</a>
+  </div>
+</section>
+

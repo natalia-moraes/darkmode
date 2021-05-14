@@ -1,0 +1,531 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-bg);
+}
+
+:root {
+  --main-color: rgb(218, 18, 18);
+  --text-color: #252525;
+  --body-bg: #fff;
+}
+
+.dark-mode:root {
+  --body-bg: #252525;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+}
+
+/* MENU */
+.menu {
+  background-color: #ccc;
+  padding: 15px 0;
+}
+
+.dark-mode .menu{
+  background: var(--text-color);
+}
+
+.menu-nav {
+  flex: 1;
+}
+
+.menu-nav ul {
+  float: right;
+  list-style: none;
+}
+
+.menu-nav a {
+  color: var(--main-color);
+  text-decoration: none;
+  font-size: 1.125em;
+  font-weight: 700;
+}
+
+.menu-nav a:hover{
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+@media screen and (max-width: 780px) {
+  .menu .container {
+    display: flex;
+    flex: 1;
+  }
+
+  .toggle{
+    margin-left: 10px;
+  }
+}
+
+/* BOTAO DARK */
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: #363636;
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background-color: var(--main-color);
+}
+
+input:checked + label::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 45px;
+}
+
+/* HOME - PESQUISA */
+.home {
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.home-title {
+  padding-top: 60px;
+  font-size: 48px;
+  color: var(--main-color);
+}
+
+.dark-mode .home-title {
+  color: #fff;
+}
+
+.home form {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin: 0 10px;
+}
+
+.home input {
+  border: 3px solid var(--text-color);
+  background: none;
+  font-size: 1.5em;
+  font-style: italic;
+  padding: 10px;
+  flex: 1;
+}
+
+.dark-mode .home input {
+  border: 3px solid #fff;
+  background: #fff;
+  color: #252525;
+}
+
+.home button {
+  border: 3px solid var(--text-color);
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: #fff;
+  background: var(--text-color);
+  padding: 0 15px;
+  letter-spacing: 0.2em;
+}
+
+.dark-mode .home button {
+  border: 3px solid #c1c1c1;
+  background: #c1c1c1;
+  color: #252525;
+}
+
+@media screen and (max-width: 456px) {
+  .home-title {
+    font-size: 36px;
+  }
+
+  .home input {
+    margin-bottom: 5px;
+  }
+
+  .home button {
+    margin: 0 auto;
+    padding: 10px;
+  }
+}
+
+/* USER */
+.user {
+  padding-top: 20px;
+}
+.user-info {
+  max-width: 310px;
+  flex: 1;
+  margin: 20px auto;
+  border: 0.3px solid #d2d2d2;
+  border-radius: 8px;
+}
+
+.user_img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50% !important;
+  margin: 10px 10px;
+  align-self: center;
+}
+
+.user ul {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 10px;
+}
+
+.user ul li {
+  list-style: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dark-mode .user ul li {
+  color: #ccc;
+}
+
+.user-data {
+  font-size: 0.7em;
+  font-weight: none;
+  color: #d2d2d2;
+}
+
+.user a {
+  text-decoration: none;
+  list-style: none;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 3px 20px;
+  margin-right: 10px;
+  height: 30px;
+  color: var(--main-color);
+  font-weight: bold;
+  align-self: center;
+}
+
+.user a:hover{
+  background: var(--main-color);
+  color: #fff;
+}
+
+@media screen and (max-width: 780px) {
+  .user .container {
+    display: flex;
+    flex: 1;
+    margin: 0 auto;
+  }
+}
+
+/**/
+.header{
+  margin-top: 20px;
+}
+.perfil_img{
+   flex-basis: 30%;
+   margin-right: 2%;
+   text-align: center;
+}
+
+.perfil_img img{
+   margin: 15px;
+   width: 150px;
+   height: 150px;
+   border-radius: 50% !important;
+}
+
+.perfil{
+   flex-basis: 68%;
+   align-self: center;
+   margin-left: 10px;
+   flex:1;
+   flex-wrap: wrap;
+}
+
+.perfil_login{
+   margin-bottom: 8px;
+   font-size: 1.2em;
+}
+
+.dark-mode .perfil_login{
+   color: #ccc;
+}
+
+.perfil_card{
+   flex: 1;
+   align-content: space-around;
+   list-style: none;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   margin-right: 2em;
+   text-align: center;
+   padding: 10px 0;
+}
+
+.perfil_card a{
+   text-decoration: none;
+   color:var(--text-color);
+   font-size: 1.5em;
+   font-weight: 700;
+}
+
+.perfil_card p{
+   color: var(--text-color);
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.perfil_name h2{
+   margin: 8px 0;
+   font-weight: none;
+}
+
+.perfil_name p{
+   color: #4F4F4F;
+}
+
+.dark-mode .perfil_name h2, .dark-mode .perfil_name p, .dark-mode .perfil_card p, .dark-mode .perfil_card a{
+   color: #ccc;
+}
+
+.perfil_card:hover{
+   background: var(--main-color);
+   border: 1px solid var(--main-color);
+}
+
+.dark-mode .perfil_card:hover{
+   background: var(--main-color);
+   border: 1px solid var(--main-color);
+}
+
+@media screen and (max-width:780px) {
+   .container{
+       display: block;
+       margin: 0;
+   }
+
+   .perfil_login, .perfil_name{
+       text-align: center;
+   }
+   
+   .perfil_card{
+       margin-right: .7em;
+   }
+
+   .perfil ul{
+       display: flex;
+   }
+}
+
+@media screen and (max-width: 456px){
+   .perfil_card a{
+       font-size: 1em;
+   }
+
+   .perfil_card p{
+       font-size: .7em;
+   }
+}
+
+.repos_body{
+   margin: 10px;
+}
+
+.repos_body ul{
+   margin:5px 0;
+   list-style: none;
+}
+
+.repos_body ul li{
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   padding: 20px;
+}
+
+.dark-mode .repos_body ul li a, .repos_body ul li p{
+  color: #fff;
+}
+
+/* .repos_url{
+   flex:1;
+   justify-content: space-between;
+} */
+
+.repos_body ul li a{
+   text-decoration: none;
+   color: var(--text-color);
+}
+
+.repos_body ul li a:hover{
+   color:rgb(218, 18, 18);
+   font-weight: 700;
+}
+
+.repos_body ul li p{
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: .8em; 
+}
+
+.repos{
+   flex: 1;
+   flex-direction: column;
+}
+
+.repos_body li:hover{
+   border: 1px solid var(--main-color);
+   color: var(--main-color);
+}
+
+.repos_mais{
+  flex: 1;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width:780px) {
+  .container .repos_mais{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.repos_mais button{
+  margin-left: 20px;
+  border: none;
+  background: none;
+  color: var(--text-color);
+  font-weight: bold;
+  width: 10px;
+  height: 10px;
+}
+
+.dark-mode .repos_mais button{
+  color: #ccc;
+}
+
+.repos_mais button:hover{
+  color: var(--main-color);
+}
+
+.btn{
+   max-width: 40px;
+   margin-left: 10px;
+   padding: 5px 10px;
+   background: none;
+   border-radius: 5px;
+   color: var(--main-color);
+   border: 1px solid var(--main-color);
+   text-align: center;
+}
+
+.dark-mode .btn {
+   color: #ccc;
+   border: 1px solid #ccc;
+}
+
+.btn:hover{
+   background: var(--main-color);
+   color: #fff;
+   border: 1px solid var(--main-color);
+}
+
+.dark-mode .btn:hover{
+   background: var(--main-color);
+   color: #ccc;
+   border: 1px solid var(--main-color);
+}
+
+
+/* Seguidores */
+
+.container .followers_login a{
+  flex: 1;
+  align-self: center;
+}
+
+.followers_img img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% !important;
+  margin: 5px 10px;
+  align-self: center;
+}
+.followers_lista{
+  margin: 10px;
+}
+
+.followers_lista ul li{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.followers_lista ul li a{
+  text-decoration: none;
+  color: var(--text-color);
+  padding-left: 15px;
+}
+.followers_lista ul li a:hover{
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.followers_lista ul li:hover{
+  border: 1px solid var(--main-color);
+}
+
+.dark-mode .followers_lista ul li a{
+  color: #ccc;
+}
+
+.dark-mode .followers_lista ul li:hover{
+  border: 1px solid var(--main-color);
+}
+
+.dark-mode .followers_lista ul li a:hover{
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+@media screen and (max-width:780px){
+  .container .followers_login{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+}

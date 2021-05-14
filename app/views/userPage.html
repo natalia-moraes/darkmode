@@ -1,0 +1,79 @@
+<header class="menu">
+  <div class="container">
+    <div class="toggle">
+      <input id="switch" type="checkbox" name="theme">
+      <label for="switch">Toggle</label>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <header class="container header">
+    <div class="perfil_img">
+      <img src="{{details.avatar_url}}"/>
+    </div>
+    <section class="perfil">
+      <div class="perfil_login">
+        <p ng-bind="details.login"></p>
+      </div>
+      <ul class="container" ng-if="details">
+        <li class="perfil_card">
+          <a ng-bind="details.followers" href="" ng-click="followers()"></a>
+          <p>Seguidores</p>
+        </li>
+        <li class="perfil_card">
+          <a ng-bind="details.following" href=""></a>
+          <p>Seguindo</p>
+        </li>
+        <li class="perfil_card">
+          <a ng-bind="details.public_repos" href="" ng-click="repos()"></a>
+          <p>Repositórios</p>
+        </li>
+      </ul>
+      <div class="perfil_name">
+        <h2 ng-bind="details.name"></h2>
+        <p ng-bind="details.bio"></p>
+      </div>
+    </section>
+  </header>
+</main>
+
+<!-- LISTA DE REPOSITORIOS -->
+<div class="container repos" ng-if="showRepo">
+  <button class="btn" ng-click="order()">☆</button>
+  <section class="repos_body">
+    <ul ng-repeat="repo in repositorios | orderBy: orderName ">
+      <li class="container repos_url">
+        <a ng-bind="repo.name" name="nome" href="{{repo.html_url}}"></a>
+        <div class="container repos_mais">
+          <p>☆ {{repo.stargazers_count}}</p>
+          <button ng-click="showModal(repo)"> ► </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<!-- LISTA DE SEGUIDORES -->
+<div class="container repos">
+  <section class="followers_lista">
+    <ul ng-repeat="seguidores in followers">
+      <li class="container followers_login">
+        <div class="followers_img">
+          <img src="{{seguidores.avatar_url}}" alt="">
+        </div>
+        <a ng-bind="seguidores.login" href="{{seguidores.html_url}}"></a>
+      </li>
+    </ul>
+  </section>
+</div>
+
+
+
+
+
